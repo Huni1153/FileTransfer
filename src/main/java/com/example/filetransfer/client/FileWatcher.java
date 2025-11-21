@@ -72,10 +72,7 @@ public class FileWatcher implements Runnable {
             if (LotFileNameParser.isMainCsv(filename)) {
                 System.out.println("[WATCH] Main CSV created: " + fullPath);
 
-                boolean stable = FileStabilityChecker.waitUntilStable(
-                        fullPath,
-                        ClientConfig.MAIN_EXCEL_STABLE_MILLIS,
-                        ClientConfig.MAIN_EXCEL_MAX_WAIT_MILLIS);
+                boolean stable = FileStabilityChecker.waitUntilStable(fullPath, ClientConfig.MAIN_EXCEL_STABLE_MILLIS, ClientConfig.MAIN_EXCEL_MAX_WAIT_MILLIS);
 
                 if (!stable) {
                     System.err.println("[WATCH] Main Excel not stable (timeout): " + fullPath);

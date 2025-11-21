@@ -13,10 +13,7 @@ public final class FileStabilityChecker {
      * lastModified 시간이 stableMillis 동안 변하지 않으면 "안정"으로 간주.
      * 전체 대기 시간은 maxWaitMillis를 넘지 않음.
      */
-    public static boolean waitUntilStable(Path file,
-                                          long stableMillis,
-                                          long maxWaitMillis)
-            throws IOException, InterruptedException {
+    public static boolean waitUntilStable(Path file, long stableMillis, long maxWaitMillis) throws IOException, InterruptedException {
 
         if (!Files.exists(file)) {
             return false;
